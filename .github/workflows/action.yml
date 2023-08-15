@@ -1,10 +1,43 @@
 name: Update badges
 
 on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+
   schedule:
     # Runs at 2am UTC
     - cron: "0 2 * * *"
+
 jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: ${{ env.LEVEL }}"
+          echo "Tags: ${{ env.TAGS }}"
+          echo "Environment: ${{ env.ENVIRONMENT }}"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+          ENVIRONMENT: ${{ inputs.environment }}
+          
   update-readme:
     name: Update Readme with badges
     runs-on: ubuntu-latest
@@ -13,3 +46,4 @@ jobs:
         uses: pemtajo/badge-readme@main
         with:       
           CREDLY_USER: <zain-naboulsi> # optional, but default will use the same from github
+
