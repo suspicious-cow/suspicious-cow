@@ -16,6 +16,5 @@ I'm a data analyst and scientist from Houston, Texas 🤠
 Most of what I do is propreitary and can't be shared publically but here you will find work that I do as a hobby and to keep my skills sharp. If you are just going down the data science path, drop me a line. I'm happy to help any way I can. 😃
 
 - 🔭 I’m currently working on a binary prediction model for a customer around churn rates
-- 🌱 I’m currently digging deep into AutoGen
-- 📫 How to reach me: zain_naboulsi@msn.com
+- 🌱 I’m currently digging deep into agentic AI
 - ⚡ Fun fact: I used to be a scuba diving instructor and an avid sky diver
